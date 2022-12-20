@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
+import Filter from "../Filter";
 import { Button } from "../Generic/Button";
 import { Container, Logo, Link, Section, Wrapper, Main } from "./style";
 
@@ -35,6 +36,7 @@ export const Navbar = () => {
           </Section>
         </Wrapper>
       </Main>
+      <Filter />
       <Outlet />
     </Container>
   );
