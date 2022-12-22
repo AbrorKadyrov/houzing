@@ -87,7 +87,7 @@ export const Filter = () => {
       />
 
       <Dropdown
-        menu={menu}
+        overlay={menu}
         placement="bottomRight"
         arrow={{ pointAtCenter: true }}
         trigger="click"
