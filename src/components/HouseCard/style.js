@@ -13,8 +13,6 @@ const Container = styled.div`
     drop-shadow(0px 7px 46px rgba(0, 0, 0, 0.06))
     drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.06));
 
-  margin: 100px;
-
   background: #ffffff;
   border: 1px solid #e6e9ec;
   border-radius: 3px;
@@ -23,6 +21,7 @@ const Container = styled.div`
 const Img = styled.img`
   width: 100%;
   max-height: 220px;
+  min-height: 220px;
 `;
 
 const Content = styled.div`
