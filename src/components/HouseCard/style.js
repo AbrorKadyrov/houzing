@@ -42,6 +42,8 @@ const Details = styled.div`
 
 Details.Item = styled.div`
   display: flex;
+  height: 44px;
+  justify-content: space-between;
   /* flex-direction: column;  */
   flex-direction: ${({ row }) => (row ? "row" : "column")};
   align-items: ${({ footer }) => !footer && "center"};

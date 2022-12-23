@@ -39,7 +39,7 @@ export const Category = () => {
         {data.map((value) => {
           return (
             <CategoryCard
-              onClick={() => navigate(`/properties?category=${value?.name}`)}
+              onClick={() => navigate(`/properties?category_id=${value.id}`)}
               data={value}
               key={value.id}
             />
