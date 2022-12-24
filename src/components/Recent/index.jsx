@@ -46,7 +46,7 @@ export const Recent = () => {
           return (
             <HouseCard
               gap={10}
-              onClick={() => navigate(`/properties?category_id=${value.id}`)}
+              onClick={() => navigate(`/properties/${value.id}`)}
               data={value}
               key={value.id}
             />

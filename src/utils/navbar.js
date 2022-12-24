@@ -1,11 +1,11 @@
 import React, { lazy } from "react";
+import Signin from "../pages/Signin";
 import useUniqueId from "../hooks/useId";
-import { ContactPage } from "../pages/Contacts";
-const Homepage = lazy(() => import("../pages/Home"));
 
+const Homepage = lazy(() => import("../pages/Home"));
 const PropertiesPage = lazy(() => import("../pages/Properties"));
-// import { PropertiesPage } from "../pages/Properties";
-// import { Homepage } from "../pages/Home";
+const ContactPage = lazy(() => import("../pages/Contacts"));
+const HouseItemPage = lazy(() => import("../pages/HouseItem"));
 
 export const navbar = [
   {
@@ -36,7 +36,11 @@ export const navbar = [
   },
   {
     id: useUniqueId,
-    element: <ContactPage />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <ContactPage />
+      </React.Suspense>
+    ),
     title: "Contacts",
     path: "/contacts",
     private: false,
@@ -44,7 +48,19 @@ export const navbar = [
   },
   {
     id: useUniqueId,
-    element: <h1>Generic Sign In</h1>,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <HouseItemPage />
+      </React.Suspense>
+    ),
+    title: "Single",
+    path: "/properties/:id",
+    private: false,
+    hidden: true,
+  },
+  {
+    id: useUniqueId,
+    element: <Signin />,
     title: "Sign In",
     path: "/signin",
     private: false,
@@ -52,7 +68,7 @@ export const navbar = [
   },
   {
     id: useUniqueId,
-    element: <h1>Generic Sign Up</h1>,
+    element: <h1>generic sign up</h1>,
     title: "Sign Up",
     path: "/signup",
     private: false,
