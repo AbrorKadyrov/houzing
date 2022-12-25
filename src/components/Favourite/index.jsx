@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PropertiesContext } from "../../context/properties";
-import useRequest from "../../hooks/useRequest";
+// import useRequest from "../../hooks/useRequest";
 import HouseCard from "../HouseCard";
 import { Container } from "./style";
 
