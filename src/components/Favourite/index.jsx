@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PropertiesContext } from "../../context/properties";
@@ -12,7 +12,7 @@ export const Favourite = () => {
   // const [data, setData] = useState([]);
   const navigate = useNavigate();
   const { search } = useLocation();
-  const request = useRequest();
+  // const request = useRequest();
   const [, dispatch] = useContext(PropertiesContext);
 
   const { refetch, data } = useQuery(
