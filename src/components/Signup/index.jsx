@@ -5,7 +5,7 @@ import { Button, Input } from "../Generic";
 import { Content } from "./style";
 import { message } from "antd";
 
-export const Signin = () => {
+export const Signup = () => {
   const request = useRequest();
   const [body, setBody] = useState({});
   const navigate = useNavigate();
@@ -32,21 +32,23 @@ export const Signin = () => {
     //   .then((res) => res.json())
     //   .then((res) => console.log(res, "err"));
 
-    request({ url: `/public/auth/login`, method: "POST", body, me: true }).then(
-      (res) => {
-        if (res?.authenticationToken) {
-          navigate("/home");
-          localStorage.setItem("token", res?.authenticationToken);
-        }
-        info();
-      }
-    );
+    request({
+      url: `/api/public/auth/register`,
+      method: "POST",
+      body,
+      me: true,
+    }).then((res) => {
+      info();
+      navigate("/signin");
+    });
   };
 
   return (
     <Content>
-      <div className="subTitle">Sign in</div>
+      <div className="subTitle">Sign up</div>
       <Input onChange={onChange} placeholder="email" type="email" />
+      <Input onChange={onChange} placeholder="firstname" type="text" />
+      <Input onChange={onChange} placeholder="lastname" type="text" />
       <Input onChange={onChange} placeholder="password" type="password" />
       <Button onClick={onSubmit} width="%">
         Log in
@@ -55,4 +57,4 @@ export const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;

@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { Container, Icon, Wrapper } from "./style";
 
-const Input = forwardRef(
+export const Input = forwardRef(
   (
     {
       onChange,

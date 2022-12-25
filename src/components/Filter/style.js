@@ -30,7 +30,7 @@ Icons.Houses = styled(houses)`
 const MenuWrapper = styled.div`
   padding: 30px;
   background: #ffff;
-  border: 1px solid red;
+  border: 1px solid #e6e9ec;
 `;
 const Section = styled.div`
   display: flex;

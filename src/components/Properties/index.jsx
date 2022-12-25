@@ -3,9 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useRequest from "../../hooks/useRequest";
 import HouseCard from "../HouseCard";
 import { Container } from "./style";
-// import useRequest from "../../hooks/useRequest";
-
-const { REACT_APP_BASE_URL: url } = process.env;
 
 export const Properties = () => {
   const [data, setData] = useState([]);
@@ -23,6 +20,7 @@ export const Properties = () => {
     request({ url: `/houses/list${search}` }).then((res) =>
       setData(res?.data || [])
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   const onSelect = (id) => {
@@ -30,16 +28,22 @@ export const Properties = () => {
   };
 
   return (
-    <Container>
-      {data.map((value) => {
-        return (
-          <HouseCard
-            onClick={() => onSelect(value.id)}
-            key={value.id}
-            data={value}
-          />
-        );
-      })}
-    </Container>
+    <React.Fragment>
+      <div className="title">Properties</div>
+      <div className="info" style={{ textAlign: "center" }}>
+        Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
+      </div>
+      <Container>
+        {data.map((value) => {
+          return (
+            <HouseCard
+              onClick={() => onSelect(value.id)}
+              key={value.id}
+              data={value}
+            />
+          );
+        })}
+      </Container>
+    </React.Fragment>
   );
 };

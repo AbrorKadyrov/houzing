@@ -12,7 +12,7 @@ const Container = styled.div`
   min-width: 330px;
 
   margin: ${({ gap }) => {
-    return gap && ` 0 ${gap}px`;
+    return gap && `${gap}px`;
   }};
   height: 430px;
   :hover {
@@ -66,10 +66,15 @@ Icons.Love = styled(love)`
   width: 30px;
   height: 30px;
   padding: 6px;
-  background: #f6f8f9;
+
+  background: ${({ favorite }) => (favorite ? "red" : "#f6f8f9")};
   border-radius: 50%;
   margin-left: 20px;
   cursor: pointer;
+
+  & path {
+    fill: ${({ favorite }) => favorite && "white"};
+  }
   :active {
     transform: scale(0.8);
   }
