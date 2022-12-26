@@ -1,6 +1,9 @@
 import React, { lazy } from "react";
 import Signin from "../pages/register";
 import Favourite from "../pages/Favourite";
+import MyProfile from "../pages/MyProfile";
+import AddHouse from "../pages/AddHouse";
+
 import useUniqueId from "../hooks/useId";
 
 const Homepage = lazy(() => import("../pages/Home"));
@@ -64,6 +67,22 @@ export const navbar = [
     element: <Favourite />,
     title: "Favourite",
     path: "/favourite",
+    private: true,
+    hidden: true,
+  },
+  {
+    id: useUniqueId,
+    element: <MyProfile />,
+    title: "My Profile",
+    path: "/myprofile",
+    private: true,
+    hidden: true,
+  },
+  {
+    id: useUniqueId,
+    element: <AddHouse />,
+    title: "Add House",
+    path: "/myprofile/newhouse",
     private: true,
     hidden: true,
   },

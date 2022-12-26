@@ -22,16 +22,6 @@ export const Signup = () => {
   };
 
   const onSubmit = async () => {
-    // fetch(`${REACT_APP_BASE_URL}/public/auth/login`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(body),
-    // })
-    //   .then((res) => res.json())
-    //   .then((res) => console.log(res, "err"));
-
     request({
       url: `/api/public/auth/register`,
       method: "POST",

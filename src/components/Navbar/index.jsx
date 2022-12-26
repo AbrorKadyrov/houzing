@@ -30,10 +30,10 @@ export const Navbar = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item data-name="my-profile" onClick={onClickProfile}>
+      <Menu.Item data-name="myprofile" onClick={onClickProfile}>
         My profile
       </Menu.Item>
-      <Menu.Item data-name="my-properties" onClick={onClickProfile}>
+      <Menu.Item data-name="myproperties" onClick={onClickProfile}>
         My Properties
       </Menu.Item>
       <Menu.Item data-name="favourite" onClick={onClickProfile}>

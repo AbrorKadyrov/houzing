@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   padding: var(--padding);
   max-width: var(--width);
   width: 100%;
+  padding-bottom: 100px;
 `;
 
 const Section = styled.div`

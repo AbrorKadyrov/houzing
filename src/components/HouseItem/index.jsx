@@ -17,6 +17,7 @@ import { Input, Button } from "../Generic";
 import { Checkbox } from "antd";
 // import Google from "../Generic/Google";
 import Recent from "../Recent";
+import Yandex from "../Generic/Yandex";
 
 export const HouseItem = () => {
   const [data, setData] = useState({});
@@ -211,12 +212,7 @@ export const HouseItem = () => {
           <Button width={"%"}>Send request</Button>
         </Container>
       </Wrapper>
-
-      <Content.Title mt={48} mb>
-        Location
-        {/* <Google /> */}
-      </Content.Title>
-
+      <Yandex />
       <Recent />
     </React.Fragment>
   );
