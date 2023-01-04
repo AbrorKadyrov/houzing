@@ -11,11 +11,11 @@ const settings = {
   className: "center",
   centerMode: true,
   infinite: true,
-  centerPadding: "25px",
+  centerPadding: "0px",
   slidesToShow: 3,
   speed: 500,
   arrows: true,
-  adaptiveHeight: true,
+  // adaptiveHeight: true,
   dots: true,
   appendDots: (dots) => <h1>{dots} </h1>,
 };

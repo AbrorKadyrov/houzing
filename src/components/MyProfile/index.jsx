@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useRequest from "../../hooks/useRequest";
 import { Button } from "../Generic";
 // import HouseCard from "../HouseCard";
 import { AntTable, Container, Icons, User, Wrapper } from "./style";
 import noimg from "../../assets/img/noimg.png";
+import { useQuery } from "react-query";
+import { message } from "antd";
 
 export const MyProfile = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const navigate = useNavigate();
   const { search } = useLocation();
   const request = useRequest();
 
-  useEffect(() => {
-    request({ url: `/houses/me` }).then((res) => setData(res?.data || []));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+  const { data, refetch } = useQuery([search], () => {
+    return request({ url: `/houses/me`, token: true });
+  });
 
   const columns = [
     {
@@ -74,14 +75,38 @@ export const MyProfile = () => {
         return (
           <User>
             {" "}
-            <Icons.Edit />
-            <Icons.Delete />
+            <Icons.Edit
+              onClick={(event) => {
+                event.stopPropagation();
+                navigate(`/myprofile/edithouse/${data?.id}`);
+              }}
+            />
+            <Icons.Delete
+              onClick={(event) => {
+                event.stopPropagation();
+                onDelete(data?.id);
+              }}
+            />
           </User>
         );
       },
       // ellipsis: true,
     },
   ];
+
+  const onDelete = (id) => {
+    return request({
+      url: `/houses/${id}`,
+      token: true,
+      method: "DELETE",
+    }).then((res) => {
+      if (res?.success) {
+        message.info("Successfully deleted");
+        refetch();
+      }
+    });
+  };
+
   return (
     <Wrapper>
       <User>
@@ -98,7 +123,17 @@ export const MyProfile = () => {
       </User>
 
       <Container>
-        <AntTable dataSource={data} columns={columns} />
+        <AntTable
+          onRow={(record, rowIndex) => {
+            return {
+              onClick: () => {
+                navigate(`/properties/${record.id}`);
+              }, // click row
+            };
+          }}
+          dataSource={data?.data}
+          columns={columns}
+        />
       </Container>
     </Wrapper>
   );

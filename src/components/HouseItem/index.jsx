@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import useRequest from "../../hooks/useRequest";
 import nouser from "../../assets/img/nouser.png";
+import noimg from "../../assets/img/noimg.png";
+
 import {
   Container,
   Content,
@@ -11,6 +13,9 @@ import {
   Description,
   Wrapper,
   User,
+  ImageContainer,
+  ImgContainer,
+  Blur,
 } from "./style";
 
 import { Input, Button } from "../Generic";
@@ -30,9 +35,40 @@ export const HouseItem = () => {
       .then((res) => setData(res?.data));
     window.scrollTo(0, 0);
   }, [params?.id]);
+  console.log(data?.attachments, "data");
+
+  // const [firstImg] = data?.attachments;
 
   return (
     <React.Fragment>
+      <ImageContainer>
+        <ImageContainer.Main
+          src={(data?.attachments && data?.attachments[0]?.imgPath) || noimg}
+          alt="test"
+        />
+
+        <ImgContainer>
+          {data?.attachments &&
+            data?.attachments?.slice(1, 5).map((value, index) => {
+              return data?.attachments?.length > 5 && index === 3 ? (
+                <Blur.Container>
+                  <ImageContainer.Subimg
+                    key={value.id}
+                    src={value?.imgPath}
+                    alt="test"
+                  />
+                  <Blur>+{data?.attachments?.length - 5}</Blur>
+                </Blur.Container>
+              ) : (
+                <ImageContainer.Subimg
+                  key={value.id}
+                  src={value?.imgPath}
+                  alt="test"
+                />
+              );
+            })}
+        </ImgContainer>
+      </ImageContainer>
       <Wrapper>
         <Container flex={3}>
           <Section>

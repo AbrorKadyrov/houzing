@@ -88,6 +88,14 @@ export const navbar = [
   },
   {
     id: useUniqueId,
+    element: <AddHouse />,
+    title: "Add House",
+    path: "/myprofile/edithouse/:id",
+    private: true,
+    hidden: true,
+  },
+  {
+    id: useUniqueId,
     element: <Signin />,
     title: "Sign In",
     path: "/signin",
