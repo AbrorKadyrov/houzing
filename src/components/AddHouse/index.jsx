@@ -78,25 +78,25 @@ export const AddHouse = () => {
             <Input
               onChange={formik.handleChange}
               name="country"
-              value={formik.values.country}
+              value={formik.values.country || ""}
               placeholder={"Country"}
             />
             <Input
               onChange={formik.handleChange}
               name="region"
-              value={formik.values.region}
+              value={formik.values.region || ""}
               placeholder={"Region"}
             />
             <Input
               onChange={formik.handleChange}
               name="city"
-              value={formik.values.city}
+              value={formik.values.city || ""}
               placeholder={"City"}
             />
             <Input
               onChange={formik.handleChange}
               name="address"
-              value={formik.values.address}
+              value={formik.values.address || ""}
               placeholder={"Address"}
             />
           </Section>
@@ -105,42 +105,42 @@ export const AddHouse = () => {
             <Input
               type="number"
               name="houseDetails.area"
-              value={formik.values.houseDetails.area}
+              value={formik.values.houseDetails.area || ""}
               onChange={formik.handleChange}
               placeholder={"Area"}
             />
             <Input
               type="number"
               name="houseDetails.bath"
-              value={formik.values.houseDetails.bath}
+              value={formik.values.houseDetails.bath || ""}
               onChange={formik.handleChange}
               placeholder={"Bath"}
             />
             <Input
               type="number"
               name="houseDetails.beds"
-              value={formik.values.houseDetails.beds}
+              value={formik.values.houseDetails.beds || ""}
               onChange={formik.handleChange}
               placeholder={"Beds"}
             />
             <Input
               type="number"
               name="houseDetails.garage"
-              value={formik.values.houseDetails.garage}
+              value={formik.values.houseDetails.garage || ""}
               onChange={formik.handleChange}
               placeholder={"Garage"}
             />
             <Input
               type="number"
               name="houseDetails.yearBuilt"
-              value={formik.values.houseDetails.yearBuilt}
+              value={formik.values.houseDetails.yearBuilt || ""}
               onChange={formik.handleChange}
               placeholder={"YearBuilt"}
             />
             <Input
               type="number"
               name="houseDetails.room"
-              value={formik.values.houseDetails.room}
+              value={formik.values.houseDetails.room || ""}
               onChange={formik.handleChange}
               placeholder={"Room"}
             />
@@ -165,13 +165,13 @@ export const AddHouse = () => {
           <Section>
             <Input
               name="name"
-              value={formik.values.name}
+              value={formik.values.name || ""}
               onChange={formik.handleChange}
               placeholder={"Name"}
             />
             <Input
               name="zipCode"
-              value={formik.values.zipCode}
+              value={formik.values.zipCode || ""}
               onChange={formik.handleChange}
               placeholder={"Zip Code"}
             />
@@ -179,14 +179,14 @@ export const AddHouse = () => {
               type="number"
               onChange={formik.handleChange}
               name="price"
-              value={formik.values.price}
+              value={formik.values.price || ""}
               placeholder={"Price"}
             />
             <Input
               type="number"
               onChange={formik.handleChange}
               name="salePrice"
-              value={formik.values.salePrice}
+              value={formik.values.salePrice || ""}
               placeholder={"Sale Price"}
             />
           </Section>

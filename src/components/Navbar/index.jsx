@@ -28,20 +28,46 @@ export const Navbar = () => {
     }
   };
 
-  const menu = (
-    <Menu>
-      <Menu.Item data-name="myprofile" onClick={onClickProfile}>
-        My profile
-      </Menu.Item>
+  // const menu = (
+  //   <Menu>
+  // <Menu.Item data-name="myprofile" onClick={onClickProfile}>
+  //   My profile
+  // </Menu.Item>;
 
-      <Menu.Item data-name="favourite" onClick={onClickProfile}>
-        Favourites
-      </Menu.Item>
-      <Menu.Item data-name="logout" onClick={onClickProfile}>
-        Log out
-      </Menu.Item>
-    </Menu>
-  );
+  // <Menu.Item data-name="favourite" onClick={onClickProfile}>
+  //   Favourites
+  // </Menu.Item>
+  // <Menu.Item data-name="logout" onClick={onClickProfile}>
+  //   Log out
+  // </Menu.Item>;
+  //   </Menu>
+  // );
+  const menu = [
+    {
+      label: (
+        <Menu.Item data-name="myprofile" onClick={onClickProfile}>
+          My profile
+        </Menu.Item>
+      ),
+      key: "1",
+    },
+    {
+      label: (
+        <Menu.Item data-name="favourite" onClick={onClickProfile}>
+          Favourites
+        </Menu.Item>
+      ),
+      key: "2",
+    },
+    {
+      label: (
+        <Menu.Item data-name="logout" onClick={onClickProfile}>
+          Log out
+        </Menu.Item>
+      ),
+      key: "3",
+    },
+  ];
 
   return (
     <Container>
@@ -68,7 +94,7 @@ export const Navbar = () => {
           <Section>
             {token ? (
               <Dropdown
-                overlay={menu}
+                menu={{ items: menu }}
                 placement="topRight"
                 arrow={{ pointAtCenter: true }}
                 trigger="click"
