@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import useRequest from "../../hooks/useRequest";
 import nouser from "../../assets/img/nouser.png";
 import noimg from "../../assets/img/noimg.png";
 
@@ -20,14 +19,11 @@ import {
 
 import { Input, Button } from "../Generic";
 import { Checkbox } from "antd";
-// import Google from "../Generic/Google";
 import Recent from "../Recent";
-import Yandex from "../Generic/Yandex";
 
 export const HouseItem = () => {
   const [data, setData] = useState({});
   const params = useParams();
-  // const request = useRequest();
 
   useEffect(() => {
     fetch(`https://houzing-app.herokuapp.com/api/v1/houses/id/${params?.id}`)
@@ -36,8 +32,6 @@ export const HouseItem = () => {
     window.scrollTo(0, 0);
   }, [params?.id]);
   console.log(data?.attachments, "data");
-
-  // const [firstImg] = data?.attachments;
 
   return (
     <React.Fragment>
@@ -248,7 +242,16 @@ export const HouseItem = () => {
           <Button width={"%"}>Send request</Button>
         </Container>
       </Wrapper>
-      <Yandex />
+
+      <iframe
+        title="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10492.764876187057!2d128.75427802892926!3d35.84424402204073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35660c420847ec49%3A0xb8836c91bc7c6c05!2z7KCcM-2YuOyWtOumsOydtOqzteybkA!5e0!3m2!1sru!2skr!4v1673640596222!5m2!1sru!2skr"
+        width="100%"
+        height="500px"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
       <Recent />
     </React.Fragment>
   );

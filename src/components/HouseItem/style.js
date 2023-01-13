@@ -51,7 +51,6 @@ Content.Title = styled.div`
   font-size: ${({ large }) => (large ? "24px" : "18px")};
   line-height: 32px;
 
-  /* margin-top: ${({ mt }) => `${mt}px`}; */
   margin-bottom: ${({ mb }) => `${mb}px`};
 
   letter-spacing: -0.02em;
@@ -61,8 +60,6 @@ Content.Title = styled.div`
 const Details = styled.div`
   display: flex;
   align-items: center;
-  /* margin-top: 32px; */
-  /* padding-top: 16px; */
 `;
 
 Details.Title = styled.div`
@@ -118,8 +115,6 @@ Icons.Ruler = styled(ruler)``;
 Icons.Resize = styled(resize)``;
 
 const Description = styled.div`
-  /* margin-top: 16px; */
-
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
@@ -128,8 +123,6 @@ const Description = styled.div`
   color: #696969;
 
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
-
-  /* margin-bottom: 48px; */
 `;
 
 const User = styled.div``;
